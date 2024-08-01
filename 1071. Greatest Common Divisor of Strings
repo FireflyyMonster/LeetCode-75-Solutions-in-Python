@@ -1,0 +1,13 @@
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if len(str2)>len(str1): 
+            str1,str2=str2,str1 
+        
+        if str1 == str2:
+            return str1
+        
+        if str1[0:len(str2)]!= str2:
+            return "" # returning an empty string
+        
+        return self.gcdOfStrings(str1[len(str2):], str2) # using recursion since we have to repeat the entire process with the remaning part of the string as well
+    
