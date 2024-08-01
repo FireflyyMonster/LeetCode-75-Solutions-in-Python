@@ -1,0 +1,20 @@
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        def find_max_num(candies):
+            max = candies[0]
+            for i in range(len(candies)):
+                if candies[i]>max:
+                    max = candies[i]
+            return max
+        
+        def candy_distributer(candies,extraCandies,max):
+            result=[]
+            for i in range(len(candies)):
+                if candies[i]+extraCandies>=max:
+                    result.append(True)
+                else:
+                    result.append(False)
+            return result
+
+        max = find_max_num(candies)
+        return candy_distributer(candies,extraCandies,max) 
